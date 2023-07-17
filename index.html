@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Tính điểm thi ĐH khối D</h1>
+    <h3>Môn Toán</h3>
+    <input type="number" id="diemToan">
+    <h3>Môn Văn</h3>
+    <input type="number" id="diemVan">
+    <h3>Môn Anh</h3>
+    <input type="number" id="diemAnh">
+    <h3>Khu vực</h3>
+    <select id="khuvuc">
+        <option value="kv1">KV1</option>
+        <option value="kv2-nt">KV2-NT</option>
+        <option value="kv2">KV2</option>
+        <option value="kv3">KV3</option>
+    </select>
+    <button onclick="tinhDiem()"><b>Tính điểm</b></button>
+    <h3>Tổng điểm đại học của bạn là: </h3>
+    <h3 id="sum">0</h3>
+
+    <script>
+        function tinhDiem() {
+            let diemToan = +document.getElementById("diemToan").value;
+            let diemVan = +document.getElementById("diemVan").value;
+            let diemAnh = +document.getElementById("diemAnh").value;
+            let khuvuc = document.getElementById("khuvuc").value;
+            let diemCong;
+            switch (khuvuc) {
+                case "kv1":
+                    diemCong = 0.75;
+                    break;
+                case "kv2-nt":
+                    diemCong = 0.5;
+                    break;
+                case "kv2":
+                    diemCong = 0.25;
+                    break;
+                case "kv3":
+                    diemCong = 0;
+                    break;
+            }
+            console.log(diemCong);
+            let sum = diemToan + diemVan + diemAnh + diemCong;
+            document.getElementById("sum").innerText = sum;
+        }
+    </script>
+</body>
+
+</html>
